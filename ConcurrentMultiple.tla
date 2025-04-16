@@ -93,7 +93,7 @@ Spec == Init /\ [][Next]_vars /\ Progress
 
 Correctness == <>
   IF RequireCorrectness
-  THEN shared = K * N /\ IsUnlocked \* correctness when each increment is atomic
-  ELSE TRUE \* TODO minimum result when increments can overlap
+  THEN [](shared = K * N /\ IsUnlocked) \* correctness when each increment is atomic
+  ELSE [](shared >= N) \* TODO minimum result when increments can overlap
 
 ====
