@@ -8,6 +8,7 @@
 *.out
 *___model_SnapShot*.launch
 *_TTrace_*
+*_trace_T*
 states/
 model/
 _apalache-out/

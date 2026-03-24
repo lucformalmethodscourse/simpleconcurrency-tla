@@ -7,6 +7,7 @@ EXTENDS Naturals
 CONSTANTS 
     K, \* number of concurrent threads
     N, \* number of repetitions per thread
+    Min, \* minimum result when increments can overlap
     RequireCorrectness,
     ImplementTermination,
     ImplementProgress,
@@ -94,6 +95,6 @@ Spec == Init /\ [][Next]_vars /\ Progress
 Correctness == <>
   IF RequireCorrectness
   THEN [](shared = K * N /\ IsUnlocked) \* correctness when each increment is atomic
-  ELSE [](shared >= N) \* TODO minimum result when increments can overlap
+  ELSE [](shared >= Min) \* minimum result when increments can overlap
 
 ====
